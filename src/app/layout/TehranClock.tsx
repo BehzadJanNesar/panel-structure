@@ -9,7 +9,12 @@ export const TehranClock = memo(function TehranClock() {
    const { display, dateTime } = useTehranClock();
 
    return (
-      <time dateTime={dateTime} title={t('shell.clockTitle')} className="panel-clock-time" dir="ltr">
+      <time
+         dateTime={dateTime}
+         title={t('shell.clockTitle')}
+         className="text-[13px] font-medium text-(--color-primary-deep) tabular-nums"
+         dir="ltr"
+      >
          {display}
       </time>
    );
