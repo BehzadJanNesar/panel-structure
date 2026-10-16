@@ -1,0 +1,28 @@
+---
+description: Add use client only for state, effects, or events
+globs: "src/app/**/*.{ts,tsx},src/**/*.tsx"
+alwaysApply: false
+---
+
+<!-- This file defines the server and client component boundary in the App Router. -->
+
+# Server and client
+
+Add `"use client"` only where state, an effect, or an event handler is required.
+
+`src/app/layout.tsx` stays a server component. Browser providers stay in the client `src/app/providers.tsx`.
+
+Do not pull a type, formatter, or pure function into a client module just because the files sit next to each other.
+
+```tsx
+// Bad: a display-only file
+"use client";
+export function Price({ value }: { value: number }) {
+  return <span>{value}</span>;
+}
+
+// Good: no use client until it has an event
+export function Price({ value }: { value: number }) {
+  return <span>{value}</span>;
+}
+```

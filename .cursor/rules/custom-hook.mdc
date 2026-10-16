@@ -1,0 +1,21 @@
+---
+description: Put reusable React logic in a custom hook
+globs: src/**/*.tsx
+alwaysApply: false
+---
+
+<!-- This file defines the Custom Hook pattern for React logic. -->
+
+# Custom Hook
+
+Reusable React logic is a `use*` function, not a class and not a copy inside the component.
+
+A hook may wrap Zustand, TanStack Query, or local state. It must not return JSX.
+
+```tsx
+function useCartCount() {
+  return useCartStore((state) =>
+    state.lines.reduce((total, line) => total + line.quantity, 0),
+  );
+}
+```

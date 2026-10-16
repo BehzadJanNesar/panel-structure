@@ -1,0 +1,23 @@
+---
+description: User-facing copy comes from i18next, with Persian RTL as the default
+globs: "src/**/*.tsx,src/shared/i18n/**/*.ts"
+alwaysApply: false
+---
+
+<!-- This file defines the shop UI language and direction. -->
+
+# Persian and RTL
+
+User-visible copy belongs in i18next. Do not write Persian or English strings directly in JSX.
+
+The default is `fa` and `dir="rtl"`, as set in `src/app/layout.tsx`. When the language changes, update `lang` and `dir` too.
+
+Add a new key to both `src/shared/i18n/locales/fa.ts` and `en.ts`.
+
+```tsx
+// Bad
+<button>Add to cart</button>
+
+// Good
+<button>{t("cart.add")}</button>
+```

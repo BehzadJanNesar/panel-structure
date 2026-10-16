@@ -1,0 +1,24 @@
+---
+description: Isolate a swappable algorithm with a strategy
+globs: src/**/*.ts
+alwaysApply: false
+---
+
+<!-- This file defines the Strategy pattern for algorithms such as shipping cost. -->
+
+# Strategy
+
+When one job has several swappable algorithms, make each algorithm a function with the same contract. Do not spread permanent conditionals through the caller.
+
+```ts
+type ShippingStrategy = (order: Order) => number;
+
+const shippingByCity: Record<string, ShippingStrategy> = {
+  tehran: () => 0,
+  other: (order) => (order.total > 2_000_000 ? 0 : 80_000),
+};
+
+function shippingCost(order: Order) {
+  return (shippingByCity[order.city] ?? shippingByCity.other)(order);
+}
+```

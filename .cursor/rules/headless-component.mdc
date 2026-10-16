@@ -1,0 +1,25 @@
+---
+description: Separate UI behavior from locked markup
+globs: src/**/*.tsx
+alwaysApply: false
+---
+
+<!-- This file defines the Headless Component pattern for behavior without a locked look. -->
+
+# Headless Component
+
+Expose behavior without forcing the final markup. Build the look with antd or Tailwind at the call site.
+
+The shared carousel in `src/shared/ui` has this role: slide movement stays separate from the product card.
+
+```tsx
+function ProductSlider({ products }: { products: Product[] }) {
+  return (
+    <Carousel label="Products">
+      {products.map((product) => (
+        <ProductCard key={product.id} product={product} />
+      ))}
+    </Carousel>
+  );
+}
+```

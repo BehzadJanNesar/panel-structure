@@ -1,0 +1,27 @@
+---
+description: Hide a multi-step flow behind one facade
+globs: src/**/*.ts
+alwaysApply: false
+---
+
+<!-- This file defines the Facade pattern for coordinating several services in one flow. -->
+
+# Facade
+
+When one shop action calls several services in sequence, expose one simple entry. Keep the coordination details inside the facade.
+
+```ts
+function createCheckoutFacade(deps: {
+  cart: CartRepository;
+  payment: PaymentPort;
+  orders: OrderRepository;
+}) {
+  return {
+    placeOrder: async (input: CheckoutInput) => {
+      const cart = await deps.cart.get(input.cartId);
+      const payment = await deps.payment.pay(cart.id, cart.total);
+      return deps.orders.create({ cart, payment });
+    },
+  };
+}
+```

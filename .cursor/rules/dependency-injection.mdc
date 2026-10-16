@@ -1,0 +1,23 @@
+---
+description: Pass stateful service dependencies through the constructor
+globs: src/**/*.ts
+alwaysApply: false
+---
+
+<!-- This file defines dependency injection for class-based services. -->
+
+# Dependency Injection
+
+Pass a stateful service's dependencies through its constructor. That service must not construct its collaborator through a hidden import.
+
+Pure functions do not need injection. An argument is enough.
+
+```ts
+class MediaManager {
+  constructor(private readonly storage: FileStorage) {}
+
+  save(file: File) {
+    return this.storage.put(file);
+  }
+}
+```

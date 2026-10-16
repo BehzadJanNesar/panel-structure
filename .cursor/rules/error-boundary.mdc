@@ -1,0 +1,19 @@
+---
+description: Contain a section's render error with an error boundary
+globs: src/**/*.tsx
+alwaysApply: false
+---
+
+<!-- This file defines the Error Boundary pattern for isolating one UI section's error. -->
+
+# Error Boundary
+
+A render error in one section, such as the product list, must not blank the whole page. Put the boundary around that section and show a way back.
+
+Use query error state for fetch failures. A boundary is for render errors.
+
+```tsx
+<CatalogErrorBoundary>
+  <ProductList />
+</CatalogErrorBoundary>
+```

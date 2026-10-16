@@ -1,0 +1,26 @@
+---
+description: Adapt an external service to the internal contract
+globs: src/**/*.ts
+alwaysApply: false
+---
+
+<!-- This file defines the Adapter pattern for external gateways such as payment. -->
+
+# Adapter
+
+Translate an external gateway contract into the shop's internal model. The gateway name must not leak into checkout.
+
+```ts
+type PaymentPort = {
+  pay(orderId: string, amount: number): Promise<{ reference: string }>;
+};
+
+function createZarinpalAdapter(client: ZarinpalClient): PaymentPort {
+  return {
+    pay: async (orderId, amount) => {
+      const result = await client.request({ Amount: amount, Description: orderId });
+      return { reference: result.authority };
+    },
+  };
+}
+```

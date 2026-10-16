@@ -1,0 +1,30 @@
+---
+description: Keep API calls, transforms, validators, and formatters as functions
+globs: src/**/*.ts
+alwaysApply: false
+---
+
+<!-- This file limits modules without a lifecycle to functions. -->
+
+# Functional modules
+
+Do not turn these into classes:
+
+- REST functions
+- data transformers
+- validators
+- formatters
+- pure utilities
+
+The output must depend only on the input. Do not hide side effects.
+
+```ts
+// Good: map a product DTO
+function toProduct(dto: ProductDto): Product {
+  return { id: dto.id, name: dto.name, slug: dto.slug, price: dto.price };
+}
+
+function isInStock(product: Product) {
+  return product.price >= 0;
+}
+```

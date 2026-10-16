@@ -1,0 +1,25 @@
+---
+description: Keep data access behind a repository
+globs: src/**/*.ts
+alwaysApply: false
+---
+
+<!-- This file defines the Repository pattern for reading and writing shop data. -->
+
+# Repository
+
+Keep access to one data source behind an interface. UI and stores must not see the HTTP response shape.
+
+Each feature owns the repository for its domain, such as products or orders.
+
+```ts
+type ProductRepository = {
+  getBySlug(slug: string): Promise<Product>;
+};
+
+function createProductRepository(http: HttpClient): ProductRepository {
+  return {
+    getBySlug: (slug) => http.get(`/products/${slug}`).then(toProduct),
+  };
+}
+```

@@ -1,0 +1,23 @@
+---
+description: Model order status with explicit transitions
+globs: src/**/*.ts
+alwaysApply: false
+---
+
+<!-- This file defines the State Machine pattern for the order status cycle. -->
+
+# State Machine
+
+Model statuses that have a legal order, such as an order, with explicit transitions. Do not scatter status jumps across conditionals.
+
+```ts
+const orderTransitions = {
+  pending: ["paid", "cancelled"],
+  paid: ["shipped", "refunded"],
+  shipped: ["delivered"],
+} as const;
+
+function canTransition(from: OrderStatus, to: OrderStatus) {
+  return orderTransitions[from]?.includes(to) ?? false;
+}
+```

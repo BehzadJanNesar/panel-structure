@@ -1,0 +1,41 @@
+---
+description: Use implicit arrow returns and single-line if returns
+globs: "**/*.{ts,tsx}"
+alwaysApply: false
+---
+
+<!-- This file requires single-expression functions and single-return ifs to stay on one line in TypeScript and TSX. -->
+
+# Single-line returns
+
+When a function body is only a returned expression, write an arrow function and use its implicit return.
+
+```ts
+// Bad
+export function createId() {
+  return uuidv4();
+}
+
+// Good
+export const createId = () => uuidv4();
+```
+
+When the expression is an object, wrap it in parentheses: `() => ({ id: uuidv4() })`.
+
+When an `if` body is only a `return`, drop the braces.
+
+```ts
+// Bad
+if (existing) {
+  return { lines };
+}
+
+// Good
+if (existing) return { lines };
+
+if (!existing) return {
+  lines: [...lines, { id: createId(), productId, quantity }],
+};
+```
+
+Keep a block when the function or `if` does more than return. Do not convert class methods.

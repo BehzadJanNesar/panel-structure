@@ -1,0 +1,21 @@
+---
+description: Format Jalali dates and product images through the shared project paths
+globs: "src/features/**/*.{ts,tsx},src/shared/lib/jalali.ts"
+alwaysApply: false
+---
+
+<!-- This file defines how to render Jalali dates and product images. -->
+
+# Dates and images
+
+Format a visible date with `formatJalali` from `src/shared/lib/jalali.ts`. Do not repeat Jalali conversion inside a feature.
+
+Render a product image with `next/image`. Set dimensions or `fill`, and take `alt` from the product name.
+
+```tsx
+import Image from "next/image";
+import { formatJalali } from "@/shared/lib/jalali";
+
+<Image src={product.image} alt={product.name} width={480} height={480} />
+<time dateTime={order.createdAt}>{formatJalali(order.createdAt)}</time>
+```

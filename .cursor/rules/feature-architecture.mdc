@@ -1,0 +1,29 @@
+---
+description: Keep shop code inside features and shared
+globs: "src/**/*.{ts,tsx}"
+alwaysApply: false
+---
+
+<!-- This file fixes the project's feature-based architecture for services and UI. -->
+
+# Feature-Based Architecture
+
+Keep shop domains in `src/features/<feature>`. Export each feature's public API only from that folder's `index.ts`.
+
+Put code with no specific domain in `src/shared`: api, config, i18n, lib, and ui.
+
+Routes stay in `src/app` and do not reimplement domain logic.
+
+```txt
+src/features/catalog/index.ts
+src/features/cart/index.ts
+src/shared/api/client.ts
+```
+
+```ts
+// Good: the feature's public entry
+import { useCartStore } from "@/features/cart";
+
+// Bad: reaching into another feature's internal file
+import { useCartStore } from "@/features/cart/store/cart-store";
+```

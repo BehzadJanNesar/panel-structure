@@ -1,0 +1,25 @@
+---
+description: Use a class only for a service with state or lifecycle
+globs: src/**/*.ts
+alwaysApply: false
+---
+
+<!-- This file defines when a service must be a class. -->
+
+# Class-based services
+
+Use a class when the abstraction really has state, lifecycle, identity, or dependency management.
+
+Examples: a complex stateful service, `MediaManager`, `FileManager`, `SocketClient`.
+
+UI state is not a class. The cart stays in Zustand. `proxy.ts` stays a function.
+
+```ts
+// Good: one connection with a clear start and stop
+class SocketClient {
+  constructor(private readonly url: string) {}
+
+  connect() {}
+  disconnect() {}
+}
+```

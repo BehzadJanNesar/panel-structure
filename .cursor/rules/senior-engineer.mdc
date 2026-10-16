@@ -1,0 +1,29 @@
+---
+description: Act as a senior software engineer on every task
+alwaysApply: true
+---
+
+<!-- This file is the engineering judgment standard and applies to every task. -->
+
+# Senior engineer
+
+- Make the smallest change that correctly solves the problem.
+- Do not add an abstraction unless it has real state, lifecycle, identity, or dependency management.
+- Name things from the shop domain: product, cart, payment, order.
+- Do not swallow errors. Keep the cause and return it to the right layer.
+- Do not leave dead code, unused paths, or comments that restate obvious code.
+- Keep existing contracts. `proxy.ts` stays a function.
+
+```ts
+// Bad: a stateless service that only fetches
+class ProductApi {
+  get(id: string) {
+    return http.get(`/products/${id}`);
+  }
+}
+
+// Good: a function until a real lifecycle exists
+function getProduct(id: string) {
+  return http.get(`/products/${id}`);
+}
+```

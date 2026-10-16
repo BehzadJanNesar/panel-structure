@@ -1,0 +1,18 @@
+---
+description: Build variants in one factory
+globs: src/**/*.ts
+alwaysApply: false
+---
+
+<!-- This file defines the Factory pattern for building a service or model variant. -->
+
+# Factory
+
+Gather variant construction in one function. The UI must not know which class or adapter is created.
+
+```ts
+function createPaymentPort(provider: "zarinpal" | "idpay"): PaymentPort {
+  if (provider === "zarinpal") return createZarinpalAdapter(zarinpalClient);
+  return createIdpayAdapter(idpayClient);
+}
+```

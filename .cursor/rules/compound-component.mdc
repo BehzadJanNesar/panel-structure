@@ -1,0 +1,20 @@
+---
+description: Build related UI pieces as a compound component
+globs: src/**/*.tsx
+alwaysApply: false
+---
+
+<!-- This file defines the Compound Component pattern for related UI pieces. -->
+
+# Compound Component
+
+When several UI pieces share one state, compose them under one parent. Do not prop-drill that state deeply.
+
+```tsx
+<ProductGallery>
+  <ProductGallery.Image />
+  <ProductGallery.Thumbs />
+</ProductGallery>
+```
+
+Keep the selected-image state in the parent. Children read it from that compound's context.
