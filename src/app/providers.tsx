@@ -1,7 +1,7 @@
 import { QueryClientProvider } from '@tanstack/react-query';
 import { ConfigProvider } from 'antd';
 import faIR from 'antd/locale/fa_IR';
-import JalaliLocaleListener from 'antd-jalali-v5';
+import JalaliProvider from 'antd-jalali-v5';
 import { useState, type ReactNode } from 'react';
 
 import { antdTheme } from '@/shared/config/antd-theme';
@@ -17,7 +17,7 @@ export const AppProviders = ({ children }: AppProvidersProps) => {
    return (
       <QueryClientProvider client={queryClient}>
          <ConfigProvider theme={antdTheme} direction="rtl" locale={faIR}>
-            <JalaliLocaleListener />
+            <JalaliProvider />
             {children}
          </ConfigProvider>
       </QueryClientProvider>

@@ -35,11 +35,11 @@ export const antdTheme: ThemeConfig = {
          iconSize: 18,
          darkItemBg: 'transparent',
          darkSubMenuItemBg: 'transparent',
-         darkItemSelectedBg: 'rgba(158, 61, 92, 0.28)',
-         darkItemHoverBg: 'rgba(255, 255, 255, 0.05)',
-         darkItemColor: palette.siderMuted,
-         darkItemSelectedColor: palette.siderText,
          darkPopupBg: palette.siderRaised,
+         darkItemColor: palette.siderMuted,
+         darkItemHoverBg: palette.menuHoverBg,
+         darkItemSelectedColor: palette.siderText,
+         darkItemSelectedBg: palette.menuSelectedBg,
       },
       Breadcrumb: {
          itemColor: palette.inkMuted,
@@ -47,6 +47,35 @@ export const antdTheme: ThemeConfig = {
          linkColor: palette.inkMuted,
          linkHoverColor: palette.primary,
          separatorColor: palette.gold,
+      },
+      Modal: {
+         headerBg: palette.canvas,
+         footerBg: palette.canvas,
+         contentBg: palette.canvas,
+      },
+      Progress: {
+         remainingColor: palette.line,
+      },
+      Card: {
+         colorBorderSecondary: palette.line,
+      },
+      Table: {
+         headerBg: palette.surface,
+         rowHoverBg: palette.tableRowHoverBg,
+      },
+      Button: {
+         defaultBorderColor: palette.line,
+         defaultHoverColor: palette.primary,
+         defaultHoverBorderColor: palette.primary,
+         primaryShadow: palette.buttonPrimaryShadow,
+      },
+      DatePicker: {
+         cellHoverBg: palette.dateCellHoverBg,
+         cellActiveWithRangeBg: palette.dateCellRangeBg,
+      },
+      Select: {
+         optionActiveBg: palette.selectOptionActiveBg,
+         optionSelectedBg: palette.selectOptionSelectedBg,
       },
    },
 };

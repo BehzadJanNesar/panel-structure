@@ -12,6 +12,7 @@ import { salesRoute } from './segments/sales.routes';
 import { settingsRoute } from './segments/settings.routes';
 import { smsRoute } from './segments/sms.routes';
 import { supportRoute } from './segments/support.routes';
+import { uiKitRoute } from './segments/ui-kit.routes';
 
 /**
  * Sidebar order is the match order under the shell.
@@ -32,6 +33,7 @@ export const mainLayoutChildRoutes = [
    settingsRoute,
    activityRoute,
    smsRoute,
+   uiKitRoute,
 ];
 
 /** Keys of groups that already have children, so the menu can reopen them after navigation. */

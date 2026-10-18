@@ -23,4 +23,5 @@ export const RouteId = {
    settings: 'settings:index',
    activity: 'activity:list',
    sms: 'sms:list',
+   uiKit: 'ui-kit:index',
 } as const;

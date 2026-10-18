@@ -22,4 +22,5 @@ export const PATH = {
    settings: 'settings',
    activity: 'activity',
    sms: 'sms',
+   uiKit: 'ui-kit',
 } as const;

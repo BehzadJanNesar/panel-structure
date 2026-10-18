@@ -16,6 +16,14 @@ export const palette = {
    siderRaised: '#24181D',
    siderText: '#F6EEF1',
    siderMuted: '#C4B0B6',
+   menuSelectedBg: 'rgba(158, 61, 92, 0.28)',
+   menuHoverBg: 'rgba(255, 255, 255, 0.05)',
+   tableRowHoverBg: 'rgba(158, 61, 92, 0.04)',
+   dateCellHoverBg: 'rgba(158, 61, 92, 0.08)',
+   dateCellRangeBg: 'rgba(158, 61, 92, 0.12)',
+   selectOptionSelectedBg: 'rgba(158, 61, 92, 0.1)',
+   selectOptionActiveBg: 'rgba(198, 162, 122, 0.14)',
+   buttonPrimaryShadow: '0 8px 18px rgba(158, 61, 92, 0.28)',
 } as const;
 
 const cssVariables = {
