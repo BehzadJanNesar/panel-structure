@@ -8,11 +8,11 @@ alwaysApply: false
 
 # Persian and RTL
 
-User-visible copy belongs in i18next. Do not write Persian or English strings directly in JSX.
+User-visible copy belongs in i18next. Do not write Persian strings directly in JSX.
 
 The default is `fa` and `dir="rtl"`, as set in `src/app/layout.tsx`. When the language changes, update `lang` and `dir` too.
 
-Add a new key to both `src/shared/i18n/locales/fa.ts` and `en.ts`.
+Add a new key to `src/shared/i18n/locales/fa.ts`.
 
 ```tsx
 // Bad
